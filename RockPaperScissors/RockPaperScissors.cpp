@@ -7,6 +7,9 @@
 // TODO: Add a feature to allow the user to play multiple games and track wins and losses.
 // TODO: Add a feature to allow the user to quit the game.
 // TODO: Implement multiplayer functionality.
+//
+// TODO: Fix the game logic to correctly determine the winner.
+//
 
 #include <iostream>
 
@@ -16,17 +19,17 @@
 int verifyChoice(int userChoice) 
 {
 	
-	if (userChoice == 1) {
+	if (userChoice == 0) {
 
 		std::cout << "You chose rock!\n";
 
 	}
-	else if (userChoice == 2) {
+	else if (userChoice == 1) {
 
 		std::cout << "You chose paper!\n";
 
 	}
-	else if (userChoice == 3) {
+	else if (userChoice == 2) {
 
 		std::cout << "You chose scissors!\n";
 
@@ -42,22 +45,25 @@ int verifyChoice(int userChoice)
 
 // @genComputerChoice function generates a random choice for the computer.
 // Returns an integer value that represents the computer's choice.
+// 
+// TODO: Fix the number and choice mapping.
 //
 int genComputerChoice()
 {
-	int computerChoice = rand() % 3 + 1;
 
-	if (computerChoice == 1) {
+	int computerChoice = rand() % 3;
+
+	if (computerChoice == 0) {
 
 		std::cout << "The computer chose rock!\n";
 
 	}
-	else if (computerChoice == 2) {
+	else if (computerChoice == 1) {
 
 		std::cout << "The computer chose paper!\n";
 
 	}
-	else if (computerChoice == 3) {
+	else if (computerChoice == 2) {
 
 		std::cout << "The computer chose scissors!\n";
 
@@ -70,23 +76,24 @@ int genComputerChoice()
 //
 void war(int userChoice, int computerChoice)
 {
+	userChoice = userChoice - 1;
 
-	if (userChoice ==  computerChoice) {
+	if (userChoice == computerChoice) {
 
 		std::cout << "It's a tie!\n";
 
 	}
-	else if (userChoice == 1 && computerChoice == 3) {
+	else if (userChoice == 1 && computerChoice == 2) {
 
 		std::cout << "You win!\n";
 
 	}
-	else if (userChoice == 2 && computerChoice == 1) {
+	else if (userChoice == 2 && computerChoice == 0) {
 	
 		std::cout << "You win!\n";
 	
 	}
-	else if (userChoice == 3 && computerChoice == 2) {
+	else if (userChoice == 3 && computerChoice == 1) {
 	
 		std::cout << "You win!\n";
 	
