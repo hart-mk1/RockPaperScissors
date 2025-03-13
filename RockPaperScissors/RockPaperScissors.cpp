@@ -19,17 +19,17 @@
 int verifyChoice(int userChoice) 
 {
 	
-	if (userChoice == 0) {
+	if (userChoice == 1) {
 
 		std::cout << "You chose rock!\n";
 
 	}
-	else if (userChoice == 1) {
+	else if (userChoice == 2) {
 
 		std::cout << "You chose paper!\n";
 
 	}
-	else if (userChoice == 2) {
+	else if (userChoice == 3) {
 
 		std::cout << "You chose scissors!\n";
 
@@ -50,20 +50,22 @@ int verifyChoice(int userChoice)
 //
 int genComputerChoice()
 {
+	srand(time(NULL));
+	int computerChoice = rand() % 3 + 1;
+	
+	std::cout << computerChoice << std::endl;
 
-	int computerChoice = rand() % 3;
-
-	if (computerChoice == 0) {
+	if (computerChoice == 1) {
 
 		std::cout << "The computer chose rock!\n";
 
 	}
-	else if (computerChoice == 1) {
+	else if (computerChoice == 2) {
 
 		std::cout << "The computer chose paper!\n";
 
 	}
-	else if (computerChoice == 2) {
+	else if (computerChoice == 3) {
 
 		std::cout << "The computer chose scissors!\n";
 
@@ -76,24 +78,23 @@ int genComputerChoice()
 //
 void war(int userChoice, int computerChoice)
 {
-	userChoice = userChoice - 1;
 
 	if (userChoice == computerChoice) {
 
 		std::cout << "It's a tie!\n";
 
 	}
-	else if (userChoice == 1 && computerChoice == 2) {
+	else if (userChoice == 1 && computerChoice == 3) {
 
 		std::cout << "You win!\n";
 
 	}
-	else if (userChoice == 2 && computerChoice == 0) {
+	else if (userChoice == 2 && computerChoice == 1) {
 	
 		std::cout << "You win!\n";
 	
 	}
-	else if (userChoice == 3 && computerChoice == 1) {
+	else if (userChoice == 3 && computerChoice == 2) {
 	
 		std::cout << "You win!\n";
 	
@@ -107,7 +108,7 @@ void war(int userChoice, int computerChoice)
 
 }
 
-// @main function that runs the game.
+// @main function.
 // Asks the user for their choice and verifies it in a loop. Loop breaks when a valid choice is entered.
 // TODO: Add a loop to allow the user to play multiple games.
 //
