@@ -8,8 +8,6 @@
 // TODO: Add a feature to allow the user to quit the game.
 // TODO: Implement multiplayer functionality.
 //
-// TODO: Fix the game logic to correctly determine the winner.
-//
 
 #include <iostream>
 
@@ -45,8 +43,6 @@ int verifyChoice(int userChoice)
 
 // @genComputerChoice function generates a random choice for the computer.
 // Returns an integer value that represents the computer's choice.
-// 
-// TODO: Fix the number and choice mapping.
 //
 int genComputerChoice()
 {
@@ -136,6 +132,3 @@ int main()
 
     return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
