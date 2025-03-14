@@ -1,4 +1,4 @@
-// RockPaperScissors.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// main.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 // Application plays a simple game of rock, paper, scissors with the computer and user.
 // User enters their choice and the computer generates a random choice.
@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
 
 // @verifyChoice function checks if the user's choice is valid.
 // Returns an integer value of 1 if the choice is invalid.
@@ -134,7 +135,25 @@ int main()
 	war(userChoice, computerChoice);
 	*/
 
-	sf::Window window(sf::VideoMode({ 800, 600 }), "Rock, Paper, Scissors",sf::Style::Default);
+	sf::RenderWindow window(sf::VideoMode({ 800, 600 }), "Rock, Paper, Scissors", sf::Style::Default, sf::State::Windowed);
+
+	window.setVerticalSyncEnabled(true);
+
+	sf::Font font("DS-DIGIT.ttf");
+	/*
+	if (!font.openFromFile("DS-DIGIT.ttf"))
+	{
+
+		std::cout << "Error loading font file, closing...\n";
+		window.close();
+
+	}
+	*/
+
+	sf::Text hud(font);
+	hud.setCharacterSize(24);
+	hud.setFillColor(sf::Color::White);
+	hud.setString("Welcome to Rock, Paper, Scissors...");
 
 	while (window.isOpen())
 	{
@@ -147,6 +166,13 @@ int main()
 				window.close();
 
 		}
+
+		window.clear(sf::Color::Black);
+
+		window.draw(hud);
+
+		window.display();
+
 	}
 
     return 0;
