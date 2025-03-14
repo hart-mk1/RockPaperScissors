@@ -10,6 +10,7 @@
 //
 
 #include <iostream>
+#include <SFML/Window.hpp>
 
 // @verifyChoice function checks if the user's choice is valid.
 // Returns an integer value of 1 if the choice is invalid.
@@ -46,6 +47,7 @@ int verifyChoice(int userChoice)
 //
 int genComputerChoice()
 {
+
 	srand(time(NULL));
 	int computerChoice = rand() % 3 + 1;
 	
@@ -111,6 +113,7 @@ void war(int userChoice, int computerChoice)
 int main()
 {
 
+	/*
 	int userChoice;
 	int computerChoice;
 
@@ -129,6 +132,22 @@ int main()
 	computerChoice = genComputerChoice();
 
 	war(userChoice, computerChoice);
+	*/
+
+	sf::Window window(sf::VideoMode({ 800, 600 }), "Rock, Paper, Scissors",sf::Style::Default);
+
+	while (window.isOpen())
+	{
+
+		while (const std::optional event = window.pollEvent())
+		{
+
+			if (event->is<sf::Event::Closed>())
+
+				window.close();
+
+		}
+	}
 
     return 0;
 }
